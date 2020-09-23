@@ -2,4 +2,16 @@
   text-align: center;
 }
 
+.Container {
+  display: flex;
+  width: 100%;
+  margin: 30px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.Card {
+  width: 300px;
+}
+
 

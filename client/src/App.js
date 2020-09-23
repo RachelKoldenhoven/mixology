@@ -17,9 +17,11 @@ class App extends Component {
       <div>
         <div className="App">
           <h1>Drinks</h1>
-          {this.state.drinks.map((drink) => (
-            <DrinkCard key={drink.id} drink={drink}></DrinkCard>
-          ))}
+          <div className="Container">
+            {this.state.drinks.map((drink) => (
+              <DrinkCard key={drink.id} drink={drink}></DrinkCard>
+            ))}
+          </div>
         </div>
       </div>
     );

@@ -1,6 +1,8 @@
 TODO: 
-1. Mock Data
-2. Script to start client and server
+1. Decide on views/routing
+   1. What happens when you click on one drink?
+2. How do we store and consume images?
+   1. Will the user upload their own photos?  Will we need links to public urls?
 
 Resources:
 Start the server: PORT=3001 node bin/www
