@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from '@react-md/button';
-import { Text } from '@react-md/typography';
 import './App.css';
 
 import DrinkCard from './DrinkCard.js';
@@ -20,7 +18,7 @@ class App extends Component {
         <div className="App">
           <h1>Drinks</h1>
           {this.state.drinks.map((drink) => (
-            <DrinkCard drink={drink}></DrinkCard>
+            <DrinkCard key={drink.id} drink={drink}></DrinkCard>
           ))}
         </div>
       </div>
