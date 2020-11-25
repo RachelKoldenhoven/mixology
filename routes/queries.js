@@ -37,23 +37,19 @@ async function db() {
 
 db();
 
-const client = new Client({
+const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'mixology',
   password: 'password',
   port: 5432,
 });
+pool.connect();
 
-const getDrinks = (request, response) => {
+const getDrinks = async (request, response) => {
   console.log('sdljfldsjfldsfjldsfjdlsf');
-  client.query('SELECT * FROM drinks ORDER BY id ASC', (error, results) => {
-    if (error) {
-      throw error;
-    }
-    console.log(response);
-    response.status(200).json(results.rows);
-  });
+  let results = await pool.query('SELECT * FROM drinks ORDER BY id ASC');
+  response.status(200).json(results.rows);
 };
 
 module.exports = { getDrinks };
