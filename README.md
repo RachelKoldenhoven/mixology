@@ -1,8 +1,8 @@
 TODO: 
-1. Complete schema for 10. (Get data in tables)
-2. Render all data
-3. Cleanup
-4. Intall and get linter working
+1. Prettier
+2. Intall and get linter working
+3. Complete schema for 10. (Get data in tables)
+4. Render all data
 5. README- Create ENV for postgres for user
 
 
