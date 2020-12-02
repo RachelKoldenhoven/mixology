@@ -7,8 +7,8 @@ const databaseName = 'mixology';
 async function db() {
   const dbConfig = {
     database: 'mixology',
-    // user: 'gina',
-    user: 'postgres',
+    user: 'gina',
+    // user: 'postgres',
     password: 'password',
     host: 'localhost',
     port: 5432,
@@ -40,8 +40,8 @@ db();
 
 const pool = new Pool({
   database: 'mixology',
-  // user: 'gina',
-  user: 'postgres',
+  user: 'gina',
+  // user: 'postgres',
   password: 'password',
   host: 'localhost',
   port: 5432,
