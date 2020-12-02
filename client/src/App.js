@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './index.scss';
 
 import DrinkCard from './DrinkCard.js';
 
@@ -7,7 +7,7 @@ class App extends Component {
   state = { drinks: [] };
 
   componentDidMount() {
-    fetch('/allDrinks')
+    fetch('/drinks')
       .then((res) => res.json())
       .then((drinks) => this.setState({ drinks }));
   }

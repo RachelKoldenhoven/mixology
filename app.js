@@ -6,9 +6,6 @@ var logger = require('morgan');
 const db = require('./routes/queries');
 var pgtools = require('pgtools');
 
-var indexRouter = require('./routes/index');
-var drinksRouter = require('./routes/drinks');
-
 var app = express();
 
 // view engine setup
@@ -21,9 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/drinks', drinksRouter);
-app.get('/allDrinks', db.getDrinks);
+app.get('/drinks', db.getDrinks);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
