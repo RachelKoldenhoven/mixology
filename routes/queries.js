@@ -13,26 +13,27 @@ async function db() {
     host: 'localhost',
     port: 5432,
   };
-  console.log('creating db');
+
   const client = new Client({
     ...dbConfig,
   });
+
   try {
     await client.connect();
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 
   try {
     await createDb(databaseName, { client });
-  } finally {
-    // await client.end();
+  } catch (error) {
+    throw new Error(error);
   }
 
   try {
     await migrate({ client }, 'scripts/migrations');
-  } finally {
-    // await client.end();
+  } catch (error) {
+    throw new Error(error);
   }
 }
 
@@ -49,7 +50,7 @@ const pool = new Pool({
 pool.connect();
 
 const getDrinks = async (request, response) => {
-  let results = await pool.query('SELECT * FROM drinks ORDER BY id ASC');
+  const results = await pool.query('SELECT * FROM drinks ORDER BY id ASC');
   response.status(200).json(results.rows);
 };
 

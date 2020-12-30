@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './index.scss';
 
-import DrinkCard from './DrinkCard.js';
+import DrinkCard from './DrinkCard';
 
 class App extends Component {
-  state = { drinks: [] };
+  constructor(props) {
+    super(props);
+    this.state = {
+      drinks: [],
+    };
+  }
 
   componentDidMount() {
     fetch('/drinks')
@@ -13,13 +18,14 @@ class App extends Component {
   }
 
   render() {
+    const { drinks } = this.state;
     return (
       <div>
         <div className="App">
           <h1>Drinks</h1>
           <div className="Container">
-            {this.state.drinks.map((drink) => (
-              <DrinkCard key={drink.id} drink={drink}></DrinkCard>
+            {drinks.map((drink) => (
+              <DrinkCard key={drink.id} drink={drink}/>
             ))}
           </div>
         </div>
