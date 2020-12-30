@@ -1,25 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { 
-  Card, CardHeader, CardTitle, CardContent
-} from '@react-md/card';
-import { MediaContainer } from '@react-md/media';
-import { Text } from '@react-md/typography';
+import { Card, CardHeader, CardTitle, CardContent } from "@react-md/card";
+import { MediaContainer } from "@react-md/media";
+import { Text } from "@react-md/typography";
 
-const pinaImage = require('./assests/images/pina_colada.jpeg');
+const pinaImage = require("./assests/images/pina_colada.jpeg");
 
 const DrinkCard = ({ drink }) => {
   return (
-      <div>
-      <div className="Card">
+    <div>
+      <div className='Card'>
         <Card>
           <CardHeader>
             <CardTitle>{drink.name}</CardTitle>
           </CardHeader>
           <CardContent>
             <MediaContainer fullWidth>
-              <img src={pinaImage} alt="" />
+              <img src={pinaImage} alt='' />
             </MediaContainer>
             <Text>{drink.directions}</Text>
           </CardContent>
@@ -32,5 +30,5 @@ const DrinkCard = ({ drink }) => {
 export default DrinkCard;
 
 DrinkCard.propTypes = {
-  drinks: PropTypes.object.isRequired
-}
+  drinks: PropTypes.object.isRequired,
+};

@@ -1,7 +1,6 @@
 TODO: 
-1. Prettier
-2. Render all data
-3. README- Create ENV for postgres for user
+1. Render all data
+2. README- Create ENV for postgres for user
 
 
 NOTES:
