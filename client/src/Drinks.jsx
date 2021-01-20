@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from "react";
-import DrinkCard from "./DrinkCard";
-import axios from "axios";
+import React from 'react';
+import DrinkCard from './DrinkCard';
 
-function Drinks() {
-  const [drinks, setDrinks] = useState([]);
-
-  const getDrinks = async () => {
-    const res = await axios.get("/drinks", {});
-    setDrinks(res.data);
-  };
-
-  useEffect(() => {
-    getDrinks();
-  }, []);
+function Drinks(props) {
+  const { drinks } = props;
 
   return (
-    <div className='App'>
+    <div className="App">
       <h1>Drinks</h1>
-      <div className='Container'>
+      <div className="Container">
         {drinks.map((drink) => (
           <DrinkCard key={drink.id} drink={drink} />
         ))}
