@@ -30,5 +30,5 @@ const DrinkCard = ({ drink }) => {
 export default DrinkCard;
 
 DrinkCard.propTypes = {
-  drinks: PropTypes.object.isRequired,
+  drink: PropTypes.object.isRequired,
 };

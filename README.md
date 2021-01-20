@@ -1,6 +1,8 @@
 TODO: 
-1. Render all data
-2. README- Create ENV for postgres for user
+1. Go to App.jsx file and see comment. Fetch is not working with routing. 
+1. README- Create ENV for postgres for user
+2. add routing
+3. Render all data
 
 
 NOTES:
