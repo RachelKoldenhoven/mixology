@@ -1,6 +1,4 @@
-TODO: 
-1. Render all data
-2. README- Create ENV for postgres for user
+TODO:
 
 
 NOTES:

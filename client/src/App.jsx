@@ -1,37 +1,57 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './index.scss';
+import axios from 'axios';
 
-import DrinkCard from './DrinkCard';
+import CreateDrink from './CreateDrink';
+import Drinks from './Drinks';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      drinks: [],
-    };
-  }
+function App() {
+  const [drinks, setDrinks] = useState([]);
+  const [drinkSelected, setDrinkSelected] = useState('pinaColada');
 
-  componentDidMount() {
-    fetch('/drinks')
-      .then((res) => res.json())
-      .then((drinks) => this.setState({ drinks }));
-  }
+  const fetchDrinks = async () => {
+    const res = await axios.get('/drinks', {});
+    setDrinks(res.data);
+  };
 
-  render() {
-    const { drinks } = this.state;
-    return (
-      <div>
-        <div className="App">
-          <h1>Drinks</h1>
-          <div className="Container">
-            {drinks.map((drink) => (
-              <DrinkCard key={drink.id} drink={drink}/>
-            ))}
-          </div>
+  useEffect(() => {
+    fetchDrinks();
+  }, []);
+
+  return (
+    <>
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Drinks</Link>
+            </li>
+            {/* <li>
+              <Link to='/drink'>Drink</Link>
+            </li> */}
+            <li>
+              <Link to="/createDrink">Create Drink</Link>
+            </li>
+          </ul>
+
+          <Switch>
+            <Route path={`/${drinkSelected}`}>
+              <h1>Hellow World!</h1>
+            </Route>
+
+            <Route path="/createDrink">
+              <CreateDrink />
+            </Route>
+
+            <Route path="/">
+              <Drinks drinks={drinks} />
+            </Route>
+          </Switch>
         </div>
-      </div>
-    );
-  }
+      </Router>
+    </>
+  );
 }
 
 export default App;
