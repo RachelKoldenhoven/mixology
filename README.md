@@ -1,7 +1,6 @@
 TODO:
 0. MAKE SURE YOU START SERVER IN ROOT!!! NOT CLIENT!!!
-2. in app.jsx use callback function to set url and navigate/render to new view to one drink
-3. start one drink layout
+1. start one drink layout
 
 
 NOTES:

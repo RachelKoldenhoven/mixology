@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { makeKebobCase } from './utils';
 
 import { Card, CardHeader, CardTitle, CardContent } from '@react-md/card';
 import { MediaContainer } from '@react-md/media';
@@ -10,12 +11,7 @@ const pinaImage = require('./assests/images/pina_colada.jpeg');
 const DrinkCard = ({ drink, setDrinkSelected }) => {
   const getDrinkName = () => {
     const { name } = drink;
-    const urlName = name
-      .match(
-        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
-      )
-      .map((x) => x.toLowerCase())
-      .join('-');
+    const urlName = makeKebobCase(name);
     setDrinkSelected(urlName);
   };
 

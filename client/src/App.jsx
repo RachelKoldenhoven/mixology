@@ -6,10 +6,12 @@ import axios from 'axios';
 import CreateDrink from './CreateDrink';
 import Drinks from './Drinks';
 import DrinkDetail from './DrinkDetail';
+import { makeKebobCase } from './utils';
 
 function App() {
   const [drinks, setDrinks] = useState([]);
   const [drinkSelected, setDrinkSelected] = useState('pinaColada');
+  const [drinkSelectedDetails, setDrinkSelectedDetails] = useState({});
 
   const fetchDrinks = async () => {
     const res = await axios.get('/drinks', {});
@@ -17,11 +19,15 @@ function App() {
   };
 
   useEffect(() => {
-    console.log('drinkSelected: ', drinkSelected);
     window.history.pushState({}, '', `/drinks/${drinkSelected}`);
-
     const navEvent = new PopStateEvent('popstate');
     window.dispatchEvent(navEvent);
+    const drink = drinks.filter((drink) => {
+      const urlName = makeKebobCase(drink.name);
+      return urlName === drinkSelected;
+    });
+    setDrinkSelectedDetails(drink[0]);
+    console.log('drink', drink);
   }, [drinkSelected]);
 
   useEffect(() => {
@@ -43,7 +49,7 @@ function App() {
 
           <Switch>
             <Route path={`/drinks/${drinkSelected}`}>
-              <DrinkDetail drink={drinkSelected}></DrinkDetail>
+              <DrinkDetail drink={drinkSelectedDetails}></DrinkDetail>
             </Route>
 
             <Route path="/createDrink">
