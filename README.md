@@ -1,4 +1,6 @@
 TODO:
+0. MAKE SURE YOU START SERVER IN ROOT!!! NOT CLIENT!!!
+1. start one drink layout
 
 
 NOTES:

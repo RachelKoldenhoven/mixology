@@ -5,15 +5,30 @@ import axios from 'axios';
 
 import CreateDrink from './CreateDrink';
 import Drinks from './Drinks';
+import DrinkDetail from './DrinkDetail';
+import { makeKebobCase } from './utils';
 
 function App() {
   const [drinks, setDrinks] = useState([]);
   const [drinkSelected, setDrinkSelected] = useState('pinaColada');
+  const [drinkSelectedDetails, setDrinkSelectedDetails] = useState({});
 
   const fetchDrinks = async () => {
     const res = await axios.get('/drinks', {});
     setDrinks(res.data);
   };
+
+  useEffect(() => {
+    window.history.pushState({}, '', `/drinks/${drinkSelected}`);
+    const navEvent = new PopStateEvent('popstate');
+    window.dispatchEvent(navEvent);
+    const drink = drinks.filter((drink) => {
+      const urlName = makeKebobCase(drink.name);
+      return urlName === drinkSelected;
+    });
+    setDrinkSelectedDetails(drink[0]);
+    console.log('drink', drink);
+  }, [drinkSelected]);
 
   useEffect(() => {
     fetchDrinks();
@@ -27,17 +42,14 @@ function App() {
             <li>
               <Link to="/">Drinks</Link>
             </li>
-            {/* <li>
-              <Link to='/drink'>Drink</Link>
-            </li> */}
             <li>
               <Link to="/createDrink">Create Drink</Link>
             </li>
           </ul>
 
           <Switch>
-            <Route path={`/${drinkSelected}`}>
-              <h1>Hellow World!</h1>
+            <Route path={`/drinks/${drinkSelected}`}>
+              <DrinkDetail drink={drinkSelectedDetails}></DrinkDetail>
             </Route>
 
             <Route path="/createDrink">
@@ -45,7 +57,7 @@ function App() {
             </Route>
 
             <Route path="/">
-              <Drinks drinks={drinks} />
+              <Drinks drinks={drinks} setDrinkSelected={setDrinkSelected} />
             </Route>
           </Switch>
         </div>
