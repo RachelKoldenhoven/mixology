@@ -1,11 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import styles from './DrinkDetail.module.scss';
+import axios from 'axios';
 
 const pinaImage = require('./assests/images/pina_colada.jpeg');
 
 const DrinkDetail = ({ drink }) => {
+  const [ingredients, setIngredients] = useState([]);
+
+  const getIngredients = async () => {
+    if (drink) {
+      const res = await axios.post('/ingredients', {
+        params: {
+          drinkId: drink.id,
+        },
+      });
+      setIngredients(res.data);
+    }
+  };
+
+  useEffect(() => {
+    getIngredients();
+  }, [drink]);
+
   if (!drink) return null;
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -23,7 +41,15 @@ const DrinkDetail = ({ drink }) => {
 
         <div className={styles.recipe}>
           <h3>Ingredients</h3>
-          <p>ingredients</p>
+          <ul className={styles.ingredientList}>
+            {ingredients.map((ingredient) => {
+              return (
+                <li key={ingredient.name}>
+                  {ingredient.name} | {ingredient.amount}
+                </li>
+              );
+            })}
+          </ul>
           <p>{drink.garnish}</p>
           <div>
             <p>{drink.directions}</p>

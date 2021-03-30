@@ -18,10 +18,6 @@ const DrinkCard = ({ drink, setDrinkSelected }) => {
     setDrinkSelected(urlName);
   };
 
-  const getDrinkImage = (drink) => {
-    const drinkImage = drink.name;
-  };
-
   return (
     <div className="Card" onClick={getDrinkName}>
       <Card>
