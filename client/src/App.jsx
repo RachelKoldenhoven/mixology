@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './index.scss';
+import styles from './App.module.scss';
 import axios from 'axios';
 
 import CreateDrink from './CreateDrink';
@@ -37,7 +38,7 @@ function App() {
   return (
     <>
       <Router>
-        <div>
+        <div className={styles.container}>
           <ul>
             <li>
               <Link to="/">Drinks</Link>

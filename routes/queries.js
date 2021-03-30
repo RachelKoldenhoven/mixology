@@ -54,4 +54,16 @@ const getDrinks = async (request, response) => {
   response.status(200).json(results.rows);
 };
 
-module.exports = { getDrinks };
+const getIngredients = async (request, response) => {
+  try {
+    const { drinkId } = request.body.params;
+    const results = await pool.query(
+      `SELECT ingredients.name, drinkingredients.amount FROM drinkingredients JOIN ingredients ON ingredient_id = id WHERE drink_id = ${drinkId}`
+    );
+    response.status(200).json(results.rows);
+  } catch (err) {
+    console.log('err: ', err);
+  }
+};
+
+module.exports = { getDrinks, getIngredients };
