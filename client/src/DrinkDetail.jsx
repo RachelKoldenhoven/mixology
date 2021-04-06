@@ -50,7 +50,7 @@ const DrinkDetail = ({ drink }) => {
               );
             })}
           </ul>
-          <p>{drink.garnish}</p>
+          <p>Garnish with {drink.garnish}</p>
           <div>
             <p>{drink.directions}</p>
           </div>
