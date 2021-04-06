@@ -1,11 +1,14 @@
 TODO:
 0. MAKE SURE YOU START SERVER IN ROOT!!! NOT CLIENT!!!
 1. Inside DrinkCard and DrinkDetail - figure out how to dynamically import image
+2. Figure out bug with routing
+3. Create Route
+4. Delete Route
+5. Edit Route
 
 
 NOTES:
-1. Decide on views/routing -WE ARE GOING TO USE ROUTING
-   1. What happens when you click on one drink?
+
 2. How do we store and consume images?
    1. Will the user upload their own photos?  Will we need links to public urls?
    -- Get images of glasses- that is the default-- you can upload your own photos (locally bc we will each have our own)
