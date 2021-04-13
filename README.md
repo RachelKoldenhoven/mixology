@@ -6,8 +6,8 @@ TODO:
 4. Delete Route
 5. Edit Route
 
-On 04-12:
-- continue with layout for CreateDrink.jsx
+On 04-19:
+- continue with layout for CreateDrink.jsx- resolve console warnings
 
 NOTES:
 1. How do we store and consume images?

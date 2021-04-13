@@ -1,0 +1,17 @@
+export const glasses = [
+  { value: 'brandy', label: 'Brandy' },
+  { value: 'champagneFlute', label: 'Champagne Flute' },
+  { value: 'collins', label: 'Collins' },
+  { value: 'copperMug', label: 'Copper Mug' },
+  { value: 'cordial', label: 'Cordial' },
+  { value: 'coupe', label: 'Coupe' },
+  { value: 'highball', label: 'Highball' },
+  { value: 'hurricane', label: 'Hurricane' },
+  { value: 'irishCoffee', label: 'Irish Coffee' },
+  { value: 'margarita', label: 'Margarita' },
+  { value: 'martini', label: 'Martini Glass' },
+  { value: 'nickAndNora', label: 'Nick and Nora' },
+  { value: 'rocks', label: 'Rocks Glass' },
+  { value: 'shot', label: 'Shot Glass' },
+  { value: 'wine', label: 'Wine Glass' },
+];
