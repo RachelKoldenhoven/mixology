@@ -6,10 +6,11 @@ TODO:
 4. Delete Route
 5. Edit Route
 
+On 04-19:
+- continue with layout for CreateDrink.jsx- resolve console warnings
 
 NOTES:
-
-2. How do we store and consume images?
+1. How do we store and consume images?
    1. Will the user upload their own photos?  Will we need links to public urls?
    -- Get images of glasses- that is the default-- you can upload your own photos (locally bc we will each have our own)
 

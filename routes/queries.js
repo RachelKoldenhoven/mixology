@@ -54,6 +54,12 @@ const getDrinks = async (request, response) => {
   response.status(200).json(results.rows);
 };
 
+const getCategories = async (request, response) => {
+  const results = await pool.query('SELECT * FROM categories');
+  console.log('results: ', results.rows);
+  response.status(200).json(results.rows);
+};
+
 const getIngredients = async (request, response) => {
   try {
     const { drinkId } = request.body.params;
@@ -66,4 +72,4 @@ const getIngredients = async (request, response) => {
   }
 };
 
-module.exports = { getDrinks, getIngredients };
+module.exports = { getDrinks, getCategories, getIngredients };

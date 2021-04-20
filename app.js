@@ -18,6 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/drinks', db.getDrinks);
+app.get('/categories', db.getCategories);
 app.post('/ingredients', db.getIngredients);
 
 // catch 404 and forward to error handler
