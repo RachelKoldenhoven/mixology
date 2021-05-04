@@ -15,3 +15,18 @@ export const glasses = [
   { value: 'shot', label: 'Shot Glass' },
   { value: 'wine', label: 'Wine Glass' },
 ];
+
+export const units = [
+  { value: '', label: 'none' },
+  { value: 'barspoon', label: 'barspoon' },
+  { value: 'centiliters', label: 'cl' },
+  { value: 'cup', label: 'cup' },
+  { value: 'dash', label: 'dash' },
+  { value: 'jigger', label: 'jigger' },
+  { value: 'ounce', label: 'oz' },
+  { value: 'part', label: 'part' },
+  { value: 'pony', label: 'pony' },
+  { value: 'splash', label: 'splash' },
+  { value: 'tablespoon', label: 'tbsp' },
+  { value: 'teaspoon', label: 'tsp' },
+];

@@ -6,8 +6,13 @@ TODO:
 4. Delete Route
 5. Edit Route
 
-On 04-19:
-- continue with layout for CreateDrink.jsx- resolve console warnings
+On 05-10:
+- Go to CreateDrink.jsx.  We just updated the ingredient list to be able to add/remove ingredients to a collection. (not saved to db but local state.) 
+- Next step would be to clean up variable and function names.  They are confusing. 
+- Handle Amounts next
+- See if there are additional fields on form to collect from user
+- Making the UI layout a little nicer if no more fields to add on form
+
 
 NOTES:
 1. How do we store and consume images?
