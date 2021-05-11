@@ -54,9 +54,6 @@ const DrinkDetail = ({ drink }) => {
           <div>
             <p>{drink.directions}</p>
           </div>
-          <div>
-            <p>{drink.garnish}</p>
-          </div>
         </div>
       </div>
     </div>
